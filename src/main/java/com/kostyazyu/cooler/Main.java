@@ -2,18 +2,12 @@ package com.kostyazyu.cooler;
 
 import java.util.function.Consumer;
 
-/**
- * User: gkislin
- * Date: 15.01.2015
- *
- * @link http://javawebinar.ru/topjava/
- */
 public class Main {
     public static void main(String[] args) {
         execute(() -> {
-            System.out.println("Hello Topjava!");
+            System.out.println("Hello Cooler!");
         });
-        consume(System.out::println, "Hello Topjava!");
+        consume(System.out::println, "Hello Cooler!");
     }
 
     private static void execute(Runnable runnable) {
