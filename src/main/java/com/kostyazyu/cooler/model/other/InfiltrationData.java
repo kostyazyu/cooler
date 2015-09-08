@@ -5,6 +5,7 @@ public class InfiltrationData {
     private double width_m;
     private double openCoefficient_df; //decimal fraction
     private double curtainCoefficient_df; //decimal fraction
+    // TODO automatic door
 
     public InfiltrationData() {
     }

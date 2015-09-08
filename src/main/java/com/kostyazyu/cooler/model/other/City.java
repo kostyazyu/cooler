@@ -1,4 +1,4 @@
-package com.kostyazyu.cooler.model;
+package com.kostyazyu.cooler.model.other;
 
 public class City {
     private int id;

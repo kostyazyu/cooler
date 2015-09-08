@@ -1,9 +1,6 @@
 package com.kostyazyu.cooler.model;
 
-import com.kostyazyu.cooler.model.other.EquipmentData;
-import com.kostyazyu.cooler.model.other.FanData;
-import com.kostyazyu.cooler.model.other.InfiltrationData;
-import com.kostyazyu.cooler.model.other.LightData;
+import com.kostyazyu.cooler.model.other.*;
 import com.kostyazyu.cooler.model.product.ProductRecord;
 import com.kostyazyu.cooler.model.room.ColdRoomData;
 import com.kostyazyu.cooler.model.user.User;
