@@ -34,4 +34,6 @@ public class GeneralCalculation {
     public GeneralCalculation() {
     }
 
+    //TODO think about builder pattern to use here
+
 }

@@ -17,4 +17,44 @@ public class City {
         this.baseTemperature = baseTemperature;
         this.baseRelativeHumidity = baseRelativeHumidity;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(int coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getBaseTemperature() {
+        return baseTemperature;
+    }
+
+    public void setBaseTemperature(int baseTemperature) {
+        this.baseTemperature = baseTemperature;
+    }
+
+    public double getBaseRelativeHumidity() {
+        return baseRelativeHumidity;
+    }
+
+    public void setBaseRelativeHumidity(double baseRelativeHumidity) {
+        this.baseRelativeHumidity = baseRelativeHumidity;
+    }
 }

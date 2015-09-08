@@ -1,7 +1,7 @@
 package com.kostyazyu.cooler.model.product;
 
 public class PackingData extends BaseProductData {
-    protected Packing packing;
+    private Packing packing;
 
     public PackingData() {
     }
@@ -15,4 +15,11 @@ public class PackingData extends BaseProductData {
         this.packing = packing;
     }
 
+    public Packing getPacking() {
+        return packing;
+    }
+
+    public void setPacking(Packing packing) {
+        this.packing = packing;
+    }
 }
