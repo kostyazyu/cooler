@@ -36,4 +36,64 @@ public class GeneralCalculation {
 
     //TODO think about builder pattern to use here
 
+    public double calculateGeneral() {
+        double ret = 0d;
+        ret += calculateColdRoom();
+        ret += calculateVentilation();
+        ret += calculateInfiltration();
+        ret += calculateProductCooling();
+        ret += calculateBreathing();
+        ret += calculateLight();
+        ret += calculatePersonnel();
+        ret += calculateEquipment();
+        ret += calculateFans();
+        return ret;
+    }
+
+    private double calculateColdRoom() {
+        double ret = 0d;
+
+        return ret;
+    }
+
+    private double calculateVentilation() {
+        double ret = 0d;
+        return ret;
+    }
+
+    private double calculateInfiltration() {
+        double ret = 0d;
+        return ret;
+    }
+
+    private double calculateProductCooling() {
+        double ret = 0d;
+        return ret;
+    }
+
+    private double calculateBreathing() {
+        double ret = 0d;
+        return ret;
+    }
+
+    private double calculateLight() {
+        double ret = 0d;
+        return ret;
+    }
+
+    private double calculatePersonnel() {
+        double ret = 0d;
+        return ret;
+    }
+
+    private double calculateEquipment() {
+        double ret = 0d;
+        return ret;
+    }
+
+    private double calculateFans() {
+        double ret = 0d;
+        return ret;
+    }
+
 }
