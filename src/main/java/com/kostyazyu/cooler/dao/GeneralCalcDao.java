@@ -3,7 +3,7 @@ package com.kostyazyu.cooler.dao;
 import com.kostyazyu.cooler.model.GeneralCalculation;
 import com.kostyazyu.cooler.model.other.City;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface GeneralCalcDao {
@@ -27,6 +27,6 @@ public interface GeneralCalcDao {
     GeneralCalculation getByCity(City city, int userId);
 
     //null if not found
-    GeneralCalculation getBetween(LocalDateTime start, LocalDateTime end, int userId);
+    GeneralCalculation getBetween(LocalDate start, LocalDate end, int userId);
 
 }

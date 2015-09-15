@@ -5,14 +5,14 @@ import com.kostyazyu.cooler.model.product.ProductRecord;
 import com.kostyazyu.cooler.model.room.ColdRoomData;
 import com.kostyazyu.cooler.model.user.User;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 public class GeneralCalculation {
     private int id;
     private String name; //external ID
     private User user;
-    private LocalDateTime dateTime;
+    private LocalDate date;
     private String userComment;
 
     private City city;

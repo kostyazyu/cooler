@@ -25,10 +25,6 @@ public interface GeneralCalcService {
 
     GeneralCalculation getByCity(City city, int userId);
 
-    List<GeneralCalculation> getBetween(LocalDateTime start, LocalDateTime end, int userId);
-
-    default List<GeneralCalculation> getBetweenDates(LocalDate startDate, LocalDate endDate, int userId) {
-        return getBetween(LocalDateTime.of(startDate, LocalTime.MIN), LocalDateTime.of(endDate, LocalTime.MAX), userId);
-    }
+    List<GeneralCalculation> getBetween(LocalDate start, LocalDate end, int userId);
 
 }
