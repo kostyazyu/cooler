@@ -1,5 +1,6 @@
 package com.kostyazyu.cooler;
 
+import com.kostyazyu.cooler.util.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,5 +65,10 @@ public class LoggerWrapper {
     public UnsupportedOperationException getUnsupportedOperationException(String msg) {
         logger.error(msg);
         return new UnsupportedOperationException(msg);
+    }
+
+    public NotFoundException getNotFoundException(String reason) {
+        logger.error("No data found");
+        return new NotFoundException(reason);
     }
 }
