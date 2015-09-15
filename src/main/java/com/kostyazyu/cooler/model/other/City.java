@@ -2,7 +2,6 @@ package com.kostyazyu.cooler.model.other;
 
 public class City {
     private int id;
-    private int coordinates; //external ID. Latitude + longitude (only full degrees). Example Moscow(Russian capital) coordinates = 5537
     private String name;
     private int baseTemperature_C;
     private double baseRelativeHumidity_df;
@@ -10,9 +9,8 @@ public class City {
     public City() {
     }
 
-    public City(int id, int coordinates, String name, int baseTemperature_C, double baseRelativeHumidity_df) {
+    public City(int id, String name, int baseTemperature_C, double baseRelativeHumidity_df) {
         this.id = id;
-        this.coordinates = coordinates;
         this.name = name;
         this.baseTemperature_C = baseTemperature_C;
         this.baseRelativeHumidity_df = baseRelativeHumidity_df;
@@ -24,14 +22,6 @@ public class City {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getCoordinates() {
-        return coordinates;
-    }
-
-    public void setCoordinates(int coordinates) {
-        this.coordinates = coordinates;
     }
 
     public String getName() {
@@ -56,5 +46,12 @@ public class City {
 
     public void setBaseRelativeHumidity_df(double baseRelativeHumidity_df) {
         this.baseRelativeHumidity_df = baseRelativeHumidity_df;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

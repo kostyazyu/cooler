@@ -13,7 +13,9 @@ public interface GeneralCalcService {
 
     GeneralCalculation save(GeneralCalculation calculation, int userId);
 
-    boolean delete(int id, int userId);
+    GeneralCalculation update(GeneralCalculation calculation, int userId);
+
+    void delete(int id, int userId);
 
     void deleteAll(int userId);
 
@@ -26,5 +28,7 @@ public interface GeneralCalcService {
     GeneralCalculation getByCity(City city, int userId);
 
     List<GeneralCalculation> getBetween(LocalDate start, LocalDate end, int userId);
+
+
 
 }

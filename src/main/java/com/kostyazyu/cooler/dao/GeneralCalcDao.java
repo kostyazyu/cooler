@@ -27,6 +27,6 @@ public interface GeneralCalcDao {
     GeneralCalculation getByCity(City city, int userId);
 
     //null if not found
-    GeneralCalculation getBetween(LocalDate start, LocalDate end, int userId);
+    List<GeneralCalculation> getBetween(LocalDate start, LocalDate end, int userId);
 
 }
