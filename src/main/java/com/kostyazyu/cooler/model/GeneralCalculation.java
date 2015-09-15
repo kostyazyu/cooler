@@ -31,6 +31,8 @@ public class GeneralCalculation {
     private EquipmentData equipmentData;
     private FanData fanData;
 
+    private double generalResult_kW;
+
     public GeneralCalculation() {
     }
 
