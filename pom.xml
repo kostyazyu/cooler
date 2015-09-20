@@ -22,6 +22,8 @@
         <!-- Logging -->
         <logback.version>1.1.2</logback.version>
         <slf4j.version>1.7.7</slf4j.version>
+        <junit.version>4.12</junit.version>
+        <spring-test.version>4.1.6.RELEASE</spring-test.version>
     </properties>
 
     <build>
@@ -89,6 +91,18 @@
                     <artifactId>commons-logging</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!--Test-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-test.version}</version>
         </dependency>
 
     </dependencies>

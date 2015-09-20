@@ -25,11 +25,11 @@ public class MockGeneralCalcDaoImpl implements GeneralCalcDao {
                     .build(),
             new GeneralCalculation.Builder(3, "vologda-ryba")
                     .date(LocalDate.of(2014, Month.MAY, 21))
-                    .city(new City(30,"Vologda", 28, 70))
+                    .city(new City(30,"Vologda", 28, 75))
                     .build(),
             new GeneralCalculation.Builder(4, "oskol-broiler")
                     .date(LocalDate.of(2014, Month.JUNE, 3))
-                    .city(new City(40,"Oscol", 28, 70))
+                    .city(new City(40,"Oskol", 32, 60))
                     .build()
             );
 

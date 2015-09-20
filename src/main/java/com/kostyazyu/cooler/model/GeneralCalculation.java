@@ -200,4 +200,32 @@ public class GeneralCalculation {
             return new GeneralCalculation(this);
         }
     }
+
+    @Override
+    public String toString() {
+        return "GeneralCalculation{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", user=" + user +
+                ", date=" + date +
+                ", userComment='" + userComment + '\'' +
+                ", city=" + city +
+                ", processingTime_h=" + processingTime_h +
+                ", temperatureIndoors_C=" + temperatureIndoors_C +
+                ", temperatureOutside_C=" + temperatureOutside_C +
+                ", safetyFactor_df=" + safetyFactor_df +
+                ", length_m=" + length_m +
+                ", width_m=" + width_m +
+                ", height_m=" + height_m +
+                ", coldRoomData=" + coldRoomData +
+                ", airCirculationRatio=" + airCirculationRatio +
+                ", infiltrationData=" + infiltrationData +
+                ", productRecords=" + productRecords +
+                ", lightData=" + lightData +
+                ", personnelNumber=" + personnelNumber +
+                ", equipmentData=" + equipmentData +
+                ", fanData=" + fanData +
+                ", generalResult_kW=" + generalResult_kW +
+                '}';
+    }
 }

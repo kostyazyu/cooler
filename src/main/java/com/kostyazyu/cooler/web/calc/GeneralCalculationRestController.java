@@ -1,4 +1,4 @@
-package com.kostyazyu.cooler.web.meal;
+package com.kostyazyu.cooler.web.calc;
 
 import com.kostyazyu.cooler.LoggedUser;
 import com.kostyazyu.cooler.LoggerWrapper;
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @Controller
