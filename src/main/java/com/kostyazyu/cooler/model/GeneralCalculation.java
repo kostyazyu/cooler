@@ -33,7 +33,7 @@ public class GeneralCalculation extends BaseEntity{
     private double generalResult_kW;
 
     private GeneralCalculation(Builder builder) {
-        this.id = builder.id;
+        super(builder.id);
         this.name = builder.name;
         this.user = builder.user;
         this.date = builder.date;
@@ -86,7 +86,6 @@ public class GeneralCalculation extends BaseEntity{
         public Builder(int id, String name) {
             this.id = id;
             this.name = name;
-            this.user = user;
         }
 
         public Builder user(User user) {
