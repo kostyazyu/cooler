@@ -1,7 +1,8 @@
 package com.kostyazyu.cooler.model.other;
 
-public class City {
-    private int id;
+import com.kostyazyu.cooler.model.BaseEntity;
+
+public class City extends BaseEntity{
     private String name;
     private int baseTemperature_C;
     private double baseRelativeHumidity_df;
@@ -10,18 +11,10 @@ public class City {
     }
 
     public City(int id, String name, int baseTemperature_C, double baseRelativeHumidity_df) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.baseTemperature_C = baseTemperature_C;
         this.baseRelativeHumidity_df = baseRelativeHumidity_df;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

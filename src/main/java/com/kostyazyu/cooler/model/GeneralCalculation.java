@@ -8,9 +8,8 @@ import com.kostyazyu.cooler.model.user.User;
 import java.time.LocalDate;
 import java.util.List;
 
-public class GeneralCalculation {
-    private int id;
-    private String name; //external ID
+public class GeneralCalculation extends BaseEntity{
+    private String name;
     private User user;
     private LocalDate date;
     private String userComment;
@@ -59,17 +58,9 @@ public class GeneralCalculation {
         this.generalResult_kW = builder.generalResult_kW;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public static class Builder {
         private int id;
-        private String name; //external ID
+        private String name;
         private User user;
         private LocalDate date;
         private String userComment;

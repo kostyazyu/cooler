@@ -1,12 +1,12 @@
 package com.kostyazyu.cooler.model.user;
 
+import com.kostyazyu.cooler.model.BaseEntity;
+
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.Set;
 
-public class User{
-
-    private Integer id;
+public class User extends BaseEntity {
 
     private String firstName;
 
@@ -22,22 +22,14 @@ public class User{
 
     private Set<Role> roles;
 
-    public User(Integer id, String firstName, String lastName, String email, String password, Role role, Role... roles) {
-        this.id = id;
+    public User(int id, String firstName, String lastName, String email, String password, Role role, Role... roles) {
+        super(id);
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.enabled = true;
         this.roles = EnumSet.of(role, roles);
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getFirstName() {

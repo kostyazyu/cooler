@@ -8,6 +8,27 @@ public class Product extends BaseProduct {
     private double respiratoryHeat_kJ_tonKg_20;
     private double respiratoryHeat_kJ_tonKg_30;
 
+    public Product() {
+    }
+
+    public Product(int id,
+                   String name,
+                   double solidSpecificHeat_kJ_kgK,
+                   double freezingPoint_C,
+                   double liquidSpecificHeat_kJ_kgK,
+                   double latentHeatOfMelting_kJ_kg,
+                   double respiratoryHeat_kJ_tonKg_10,
+                   double respiratoryHeat_kJ_tonKg_20,
+                   double respiratoryHeat_kJ_tonKg_30) {
+        super(id, name, solidSpecificHeat_kJ_kgK);
+        this.freezingPoint_C = freezingPoint_C;
+        this.liquidSpecificHeat_kJ_kgK = liquidSpecificHeat_kJ_kgK;
+        this.latentHeatOfMelting_kJ_kg = latentHeatOfMelting_kJ_kg;
+        this.respiratoryHeat_kJ_tonKg_10 = respiratoryHeat_kJ_tonKg_10;
+        this.respiratoryHeat_kJ_tonKg_20 = respiratoryHeat_kJ_tonKg_20;
+        this.respiratoryHeat_kJ_tonKg_30 = respiratoryHeat_kJ_tonKg_30;
+    }
+
     public double getFreezingPoint_C() {
         return freezingPoint_C;
     }

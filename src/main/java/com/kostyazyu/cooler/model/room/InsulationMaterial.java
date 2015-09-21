@@ -1,14 +1,17 @@
 package com.kostyazyu.cooler.model.room;
 
-public class InsulationMaterial {
-    private int id;
+import com.kostyazyu.cooler.model.BaseEntity;
+
+public class InsulationMaterial extends BaseEntity{
     private String name;
     private double heatConductionCoefficient_W_mK = 1d;
 
     public InsulationMaterial() {
     }
 
-    public InsulationMaterial(double heatConductionCoefficient_W_mK) {
+    public InsulationMaterial(int id, String name, double heatConductionCoefficient_W_mK) {
+        super(id);
+        this.name = name;
         this.heatConductionCoefficient_W_mK = heatConductionCoefficient_W_mK;
     }
 

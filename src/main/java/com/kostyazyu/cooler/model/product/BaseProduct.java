@@ -1,16 +1,19 @@
 package com.kostyazyu.cooler.model.product;
 
-public abstract class BaseProduct {
-    protected int id;
-    protected String name; // use as external ID
+import com.kostyazyu.cooler.model.BaseEntity;
+
+public abstract class BaseProduct extends BaseEntity {
+
+    protected String name;
     protected double solidSpecificHeat_kJ_kgK;
 
-    public int getId() {
-        return id;
+    public BaseProduct() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public BaseProduct(int id, String name, double solidSpecificHeat_kJ_kgK) {
+        super(id);
+        this.name = name;
+        this.solidSpecificHeat_kJ_kgK = solidSpecificHeat_kJ_kgK;
     }
 
     public String getName() {
