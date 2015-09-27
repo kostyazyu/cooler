@@ -8,7 +8,7 @@ public abstract class BaseEntity {
 
     public static final int START_SEQ = 100_000;
 
-    protected int id;
+    protected Integer id;
 
     public BaseEntity() {
     }
@@ -34,15 +34,15 @@ public abstract class BaseEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BaseEntity that = (BaseEntity) o;
-        if (id == 0 || that.id == 0) {
-            throw LOG.getIllegalStateException("Equals '" + this + "' and '" + that + "' with 0 id");
+        if (id == null || that.id == null) {
+            throw LOG.getIllegalStateException("Equals '" + this + "' and '" + that + "' with null id");
         }
-        return id == that.id;
+        return id.equals(that.id);
     }
 
     @Override
     public int hashCode() {
-        return id;
+        return (id == null) ? 0 : id;
     }
 }
 

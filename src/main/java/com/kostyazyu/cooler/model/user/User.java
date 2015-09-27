@@ -25,7 +25,7 @@ public class User extends BaseEntity {
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String email, String password, Role role, Role... roles) {
+    public User(Integer id, String firstName, String lastName, String email, String password, Role role, Role... roles) {
         this(id, firstName, lastName, email, password, true, EnumSet.of(role, roles));
     }
 

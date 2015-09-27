@@ -25,11 +25,11 @@ public class UserTestData {
             this(0, firstName, lastName, email, password, true, EnumSet.of(role, roles));
         }
 
-        public TestUser(int id, String firstName, String lastName, String email, String password, boolean enabled, Role role, Role... roles) {
+        public TestUser(Integer id, String firstName, String lastName, String email, String password, boolean enabled, Role role, Role... roles) {
             this(id, firstName, lastName, email, password, enabled, EnumSet.of(role, roles));
         }
 
-        public TestUser(int id, String firstName, String lastName, String email, String password, boolean enabled, Set<Role> roles) {
+        public TestUser(Integer id, String firstName, String lastName, String email, String password, boolean enabled, Set<Role> roles) {
             super(id, firstName, lastName, email, password, enabled, roles);
         }
 

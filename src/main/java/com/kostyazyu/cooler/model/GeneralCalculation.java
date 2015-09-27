@@ -59,7 +59,7 @@ public class GeneralCalculation extends BaseEntity{
     }
 
     public static class Builder {
-        private int id;
+        private Integer id;
         private String name;
         private User user;
         private LocalDate date;
@@ -83,7 +83,7 @@ public class GeneralCalculation extends BaseEntity{
 
         private double generalResult_kW;
 
-        public Builder(int id, String name) {
+        public Builder(Integer id, String name) {
             this.id = id;
             this.name = name;
         }

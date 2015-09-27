@@ -11,7 +11,7 @@ public class Product extends BaseProduct {
     public Product() {
     }
 
-    public Product(int id,
+    public Product(Integer id,
                    String name,
                    double solidSpecificHeat_kJ_kgK,
                    double freezingPoint_C,

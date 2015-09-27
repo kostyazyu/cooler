@@ -10,7 +10,7 @@ public class City extends BaseEntity{
     public City() {
     }
 
-    public City(int id, String name, int baseTemperature_C, double baseRelativeHumidity_df) {
+    public City(Integer id, String name, int baseTemperature_C, double baseRelativeHumidity_df) {
         super(id);
         this.name = name;
         this.baseTemperature_C = baseTemperature_C;

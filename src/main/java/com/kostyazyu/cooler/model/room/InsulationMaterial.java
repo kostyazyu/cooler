@@ -9,18 +9,10 @@ public class InsulationMaterial extends BaseEntity{
     public InsulationMaterial() {
     }
 
-    public InsulationMaterial(int id, String name, double heatConductionCoefficient_W_mK) {
+    public InsulationMaterial(Integer id, String name, double heatConductionCoefficient_W_mK) {
         super(id);
         this.name = name;
         this.heatConductionCoefficient_W_mK = heatConductionCoefficient_W_mK;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
