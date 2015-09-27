@@ -3,14 +3,13 @@ package com.kostyazyu.cooler.service;
 import com.kostyazyu.cooler.model.BaseEntity;
 import com.kostyazyu.cooler.model.user.Role;
 import com.kostyazyu.cooler.model.user.User;
-import com.kostyazyu.cooler.util.DbPopulator;
 import com.kostyazyu.cooler.util.NotFoundException;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Arrays;
@@ -25,18 +24,11 @@ import static com.kostyazyu.cooler.UserTestData.*;
         "classpath:spring/spring-db.xml"
 })
 @RunWith(SpringJUnit4ClassRunner.class)
+@Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts ="classpath:db/populateDB.sql")
 public class UserServiceTest {
 
     @Autowired
     protected UserService service;
-
-    @Autowired
-    private DbPopulator dbPopulator;
-
-    @Before
-    public void setUp() throws Exception {
-        dbPopulator.execute();
-    }
 
     @Test
     public void testSave() throws Exception {
