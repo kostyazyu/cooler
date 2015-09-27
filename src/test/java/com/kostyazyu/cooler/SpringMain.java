@@ -17,7 +17,7 @@ import java.util.List;
 public class SpringMain {
     public static void main(String[] args) {
         // java 7 Automatic resource management
-        try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml")) {
+        try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml", "classpath:spring/spring-mock.xml")) {
             System.out.println(Arrays.toString(appCtx.getBeanDefinitionNames()));
             AdminUserRestController adminUserController = appCtx.getBean(AdminUserRestController.class);
             System.out.println(adminUserController.create(new User(1, "user","lastName", "email", "password", Role.ROLE_ADMIN)));
