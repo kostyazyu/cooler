@@ -11,7 +11,7 @@ CREATE TABLE USERS
   lastname         VARCHAR(50),
   email            VARCHAR NOT NULL,
   password         VARCHAR NOT NULL,
-  registrationDate TIMESTAMP DEFAULT now(),
+  registrationDate DATE DEFAULT now(),
   enabled          BOOL DEFAULT TRUE
 );
 

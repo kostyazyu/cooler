@@ -26,7 +26,7 @@ public class AdminUserRestControllerTest {
 
     @Test
     public void testCreate() throws Exception {
-        controller.create(new User(null, "Luke", "Besson", "lbes@mail.com", "pass", Role.ROLE_USER));
+        controller.create(new User(0, "Luke", "Besson", "lbes@mail.com", "pass", Role.ROLE_USER));
     }
 
     @Test
