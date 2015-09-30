@@ -15,9 +15,6 @@ public interface CityDao {
     City get(int id);
 
     //null if not found
-    City getByCoordinates(int coordinates);
-
-    //null if not found
     City getByName(String name);
 
     //empty list if not found

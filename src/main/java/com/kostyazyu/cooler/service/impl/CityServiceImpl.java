@@ -2,42 +2,49 @@ package com.kostyazyu.cooler.service.impl;
 
 import com.kostyazyu.cooler.dao.CityDao;
 import com.kostyazyu.cooler.model.other.City;
+import com.kostyazyu.cooler.service.CityService;
+import com.kostyazyu.cooler.util.NotFoundException;
+import com.kostyazyu.cooler.util.exception.ExceptionUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.plugin.extension.ExtensionUtils;
 
 import java.util.List;
 
 @Service
-public class CityServiceImpl implements CityDao {
+public class CityServiceImpl implements CityService {
 
-    //TODO realization after implementation of JPA DAOs
+    @Autowired
+    CityDao cityDao;
+
 
     @Override
     public City save(City city) {
-        return null;
+        return cityDao.save(city);
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int id) throws NotFoundException {
+        ExceptionUtil.check(cityDao.delete(id), id);
     }
 
     @Override
-    public City get(int id) {
-        return null;
+    public City get(int id) throws NotFoundException {
+        return ExceptionUtil.check(cityDao.get(id), id);
     }
 
     @Override
-    public City getByCoordinates(int coordinates) {
-        return null;
-    }
-
-    @Override
-    public City getByName(String name) {
-        return null;
+    public City getByName(String name) throws NotFoundException {
+        return ExceptionUtil.check(cityDao.getByName(name), "name = " + name);
     }
 
     @Override
     public List<City> getAll() {
-        return null;
+        return cityDao.getAll();
+    }
+
+    @Override
+    public void update(City city) throws NotFoundException {
+        ExceptionUtil.check(cityDao.save(city), city.getId());
     }
 }

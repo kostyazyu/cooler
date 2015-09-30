@@ -22,7 +22,7 @@ public class UserTestData {
         }
 
         public TestUser(String firstName, String lastName, String email, String password, Role role, Role... roles) {
-            this(0, firstName, lastName, email, password, true, EnumSet.of(role, roles));
+            this(null, firstName, lastName, email, password, true, EnumSet.of(role, roles));
         }
 
         public TestUser(Integer id, String firstName, String lastName, String email, String password, boolean enabled, Role role, Role... roles) {

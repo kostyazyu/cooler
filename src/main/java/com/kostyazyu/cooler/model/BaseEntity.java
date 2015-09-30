@@ -2,22 +2,30 @@ package com.kostyazyu.cooler.model;
 
 import com.kostyazyu.cooler.LoggerWrapper;
 
+import javax.persistence.*;
+
+@MappedSuperclass
+@Access(AccessType.FIELD)
 public abstract class BaseEntity {
 
     protected static final LoggerWrapper LOG = LoggerWrapper.get(BaseEntity.class);
 
     public static final int START_SEQ = 100_000;
 
+    @Id
+    @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_seq")
     protected Integer id;
+
 
     public BaseEntity() {
     }
 
-    protected BaseEntity(int id) {
+    protected BaseEntity(Integer id) {
         this.id = id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -26,7 +34,7 @@ public abstract class BaseEntity {
     }
 
     public boolean isNew() {
-        return id == 0;
+        return id == null;
     }
 
     @Override

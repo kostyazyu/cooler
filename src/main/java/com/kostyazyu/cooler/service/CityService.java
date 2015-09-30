@@ -9,11 +9,9 @@ public interface CityService {
 
     City save(City city);
 
-    boolean delete(int id) throws NotFoundException;
+    void delete(int id) throws NotFoundException;
 
     City get(int id) throws NotFoundException;
-
-    City getByCoordinates(int coordinates) throws NotFoundException;
 
     City getByName(String name) throws NotFoundException;
 
