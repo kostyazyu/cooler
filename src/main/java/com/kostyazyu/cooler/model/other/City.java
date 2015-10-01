@@ -1,8 +1,10 @@
 package com.kostyazyu.cooler.model.other;
 
 import com.kostyazyu.cooler.model.BaseEntity;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "CITIES", uniqueConstraints = {@UniqueConstraint(columnNames = "name", name = "unique_name")})
@@ -17,9 +19,16 @@ public class City extends BaseEntity{
     public static final String BY_NAME = "City.getByName";
     public static final String ALL_SORTED = "City.getAllSorted";
 
+    @Column(name = "name", nullable = false, unique = true)
+    @NotEmpty
     private String name;
+
+    @Column(name = "temperature_C", nullable = false)
+    @NotNull
     private int temperature_C;
 
+    @Column(name = "relativeHumidity_p")
+    @NotNull
     private double relativeHumidity_p; /*percent*/
 
     public City() {
