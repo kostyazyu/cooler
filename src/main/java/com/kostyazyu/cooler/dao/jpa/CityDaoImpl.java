@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -40,7 +41,13 @@ public class CityDaoImpl implements CityDao {
 
     @Override
     public City getByName(String name) {
-        return em.createNamedQuery(City.BY_NAME, City.class).setParameter("name", name).getSingleResult();
+        TypedQuery<City> city = em.createNamedQuery(City.BY_NAME, City.class).setParameter("name", name);
+        List<City> resultList = city.getResultList();
+        if (resultList.size() == 0) {
+            return null;
+        } else {
+            return resultList.get(0);
+        }
     }
 
     @Override

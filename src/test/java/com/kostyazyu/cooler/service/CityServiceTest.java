@@ -62,7 +62,7 @@ public class CityServiceTest {
         MATCHER.assertEquals(MOSCOW, actual);
     }
 
-    @Test(expected = NoResultException.class)
+    @Test(expected = NotFoundException.class)
     public void testGetByNameNotFound() throws Exception {
         cityService.getByName("Manturovo");
     }
