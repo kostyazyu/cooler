@@ -1,11 +1,43 @@
 package com.kostyazyu.cooler.model.product;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "PRODUCTS", uniqueConstraints = @UniqueConstraint(columnNames = "name", name = "unique_product_name"))
+@NamedQueries({
+        @NamedQuery(name = Product.DELETE, query = "DELETE FROM Product p WHERE p.id=:id"),
+        @NamedQuery(name = Product.BY_NAME, query = "SELECT p FROM Product p WHERE p.name=:name"),
+        @NamedQuery(name = Product.ALL_SORTED, query = "SELECT p FROM Product p ORDER BY p.name"),
+})
 public class Product extends BaseProduct {
+
+    public static final String DELETE = "Product.delete";
+    public static final String BY_NAME = "Product.getByName";
+    public static final String ALL_SORTED = "Product.getAllSorted";
+
+    @NotNull
+    @Column(name="freezingPoint_C", nullable = false)
     private double freezingPoint_C;
+
+    @NotNull
+    @Column(name="liquidSpecificHeat_kJ_kgK", nullable = false)
     private double liquidSpecificHeat_kJ_kgK;
+
+    @NotNull
+    @Column(name="latentHeatOfMelting_kJ_kg", nullable = false)
     private double latentHeatOfMelting_kJ_kg;
+
+    @NotNull
+    @Column(name="respiratoryHeat_kJ_tonKg_10", nullable = false)
     private double respiratoryHeat_kJ_tonKg_10;
+
+    @NotNull
+    @Column(name="respiratoryHeat_kJ_tonKg_20", nullable = false)
     private double respiratoryHeat_kJ_tonKg_20;
+
+    @NotNull
+    @Column(name="respiratoryHeat_kJ_tonKg_30", nullable = false)
     private double respiratoryHeat_kJ_tonKg_30;
 
     public Product() {
@@ -75,5 +107,19 @@ public class Product extends BaseProduct {
 
     public void setRespiratoryHeat_kJ_tonKg_30(double respiratoryHeat_kJ_tonKg_30) {
         this.respiratoryHeat_kJ_tonKg_30 = respiratoryHeat_kJ_tonKg_30;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", solidSpecificHeat_kJ_kgK=" + solidSpecificHeat_kJ_kgK +
+                ", freezingPoint_C=" + freezingPoint_C +
+                ", liquidSpecificHeat_kJ_kgK=" + liquidSpecificHeat_kJ_kgK +
+                ", latentHeatOfMelting_kJ_kg=" + latentHeatOfMelting_kJ_kg +
+                ", respiratoryHeat_kJ_tonKg_10=" + respiratoryHeat_kJ_tonKg_10 +
+                ", respiratoryHeat_kJ_tonKg_20=" + respiratoryHeat_kJ_tonKg_20 +
+                ", respiratoryHeat_kJ_tonKg_30=" + respiratoryHeat_kJ_tonKg_30 +
+                '}';
     }
 }

@@ -26,8 +26,8 @@ public class Packing extends BaseProduct {
     @Override
     public String toString() {
         return "Packing{" +
-                "name='" + name + '\'' +
-                ", solidSpecificHeat_kJ_kgK=" + solidSpecificHeat_kJ_kgK +
+                    "name='" + name + '\'' +
+                    ", solidSpecificHeat_kJ_kgK=" + solidSpecificHeat_kJ_kgK +
                 '}';
     }
 }

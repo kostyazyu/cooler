@@ -19,7 +19,6 @@ public class ModelMatcher<S, T> {
         this.converter = converter;
     }
 
-    //TODO check if it it's right impl -- maybe T actual ?
     public void assertEquals(S expected, S actual) {
         Assert.assertEquals(converter.apply(expected), converter.apply(actual));
     }

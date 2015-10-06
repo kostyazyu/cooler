@@ -10,7 +10,7 @@ public interface ProductService {
 
     Product save(Product product);
 
-    boolean delete(int id) throws NotFoundException;
+    void delete(int id) throws NotFoundException;
 
     Product get(int id) throws NotFoundException;
 
