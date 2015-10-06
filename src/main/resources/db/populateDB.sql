@@ -1,6 +1,7 @@
 DELETE FROM user_roles;
 DELETE FROM users;
 DELETE FROM cities;
+DELETE FROM packings;
 ALTER SEQUENCE global_seq RESTART WITH 100000;
 
 -- password
@@ -17,3 +18,8 @@ INSERT INTO cities (name, temperature_C, relativeHumidity_p) VALUES ('Moscow', 3
 INSERT INTO cities (name, temperature_C, relativeHumidity_p) VALUES ('Hong Kong', 35, 75);
 INSERT INTO cities (name, temperature_C, relativeHumidity_p) VALUES ('Berlin', 32, 60);
 INSERT INTO cities (name, temperature_C, relativeHumidity_p) VALUES ('Oslo', 27, 80);
+
+
+INSERT INTO packings (name, solidSpecificHeat_kJ_kgK) VALUES ('PPU', 1000);
+INSERT INTO packings (name, solidSpecificHeat_kJ_kgK) VALUES ('Perlit', 3000);
+INSERT INTO packings (name, solidSpecificHeat_kJ_kgK) VALUES ('MinWool', 2000);

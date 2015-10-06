@@ -10,7 +10,7 @@ public interface PackingService {
 
     Packing save(Packing product);
 
-    boolean delete(int id) throws NotFoundException;
+    void delete(int id) throws NotFoundException;
 
     Packing get(int id) throws NotFoundException;
 
