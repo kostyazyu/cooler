@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS USERS;
 DROP TABLE IF EXISTS CITIES;
 DROP TABLE IF EXISTS PACKINGS;
 DROP TABLE IF EXISTS PRODUCTS;
+DROP TABLE IF EXISTS INSULATIONS;
 DROP SEQUENCE IF EXISTS GLOBAL_SEQ;
 
 CREATE SEQUENCE GLOBAL_SEQ START 100000;
@@ -50,12 +51,20 @@ CREATE TABLE PRODUCTS (
   id                          INTEGER PRIMARY KEY DEFAULT nextval('GLOBAL_SEQ'),
   name                        VARCHAR(50) UNIQUE NOT NULL,
   freezingPoint_C             INTEGER NOT NULL,
-  solidSpecificHeat_kJ_kgK    REAL NOT NULL,
-  liquidSpecificHeat_kJ_kgK   REAL NOT NULL,
-  latentHeatOfMelting_kJ_kg   REAL NOT NULL,
-  respiratoryHeat_kJ_tonKg_10 REAL NOT NULL,
-  respiratoryHeat_kJ_tonKg_20 REAL NOT NULL,
-  respiratoryHeat_kJ_tonKg_30 REAL NOT NULL
+  solidSpecificHeat_kJ_kgK    DOUBLE PRECISION NOT NULL,
+  liquidSpecificHeat_kJ_kgK   DOUBLE PRECISION NOT NULL,
+  latentHeatOfMelting_kJ_kg   DOUBLE PRECISION NOT NULL,
+  respiratoryHeat_kJ_tonKg_10 DOUBLE PRECISION NOT NULL,
+  respiratoryHeat_kJ_tonKg_20 DOUBLE PRECISION NOT NULL,
+  respiratoryHeat_kJ_tonKg_30 DOUBLE PRECISION NOT NULL
 );
 
 CREATE UNIQUE INDEX unique_product_name ON PRODUCTS (name);
+
+CREATE TABLE INSULATIONS (
+  id                              INTEGER PRIMARY KEY DEFAULT nextval('GLOBAL_SEQ'),
+  name                            VARCHAR(50) UNIQUE NOT NULL,
+  heatConductionCoefficient_W_mK  DOUBLE PRECISION NOT NULL
+);
+
+CREATE UNIQUE INDEX unique_insulation_name ON INSULATIONS (name);

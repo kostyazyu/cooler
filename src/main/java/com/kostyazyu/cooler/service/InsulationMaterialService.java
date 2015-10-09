@@ -9,7 +9,7 @@ public interface InsulationMaterialService {
 
     InsulationMaterial save(InsulationMaterial insulationMaterial);
 
-    boolean delete(int id) throws NotFoundException;
+    void delete(int id) throws NotFoundException;
 
     InsulationMaterial get(int id)throws NotFoundException;
 

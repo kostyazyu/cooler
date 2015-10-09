@@ -1,8 +1,11 @@
 package com.kostyazyu.cooler.service.impl;
 
+import com.kostyazyu.cooler.dao.InsulationMaterialDao;
 import com.kostyazyu.cooler.model.room.InsulationMaterial;
 import com.kostyazyu.cooler.service.InsulationMaterialService;
 import com.kostyazyu.cooler.util.NotFoundException;
+import com.kostyazyu.cooler.util.exception.ExceptionUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,35 +13,36 @@ import java.util.List;
 @Service
 public class InsulationMaterialServiceImpl implements InsulationMaterialService {
 
-    //TODO realization after implementation of JPA DAOs
+    @Autowired
+    InsulationMaterialDao materialDao;
 
     @Override
     public InsulationMaterial save(InsulationMaterial insulationMaterial) {
-        return null;
+        return materialDao.save(insulationMaterial);
     }
 
     @Override
-    public boolean delete(int id) throws NotFoundException {
-        return false;
+    public void delete(int id) throws NotFoundException {
+        ExceptionUtil.check(materialDao.delete(id), id);
     }
 
     @Override
     public InsulationMaterial get(int id) throws NotFoundException {
-        return null;
+        return ExceptionUtil.check(materialDao.get(id), id);
     }
 
     @Override
     public InsulationMaterial getByName(String name) throws NotFoundException {
-        return null;
+        return ExceptionUtil.check(materialDao.getByName(name), "name=" + name);
     }
 
     @Override
     public List<InsulationMaterial> getAll() {
-        return null;
+        return materialDao.getAll();
     }
 
     @Override
     public void update(InsulationMaterial material) throws NotFoundException {
-
+        ExceptionUtil.check(materialDao.save(material), material.getId());
     }
 }
