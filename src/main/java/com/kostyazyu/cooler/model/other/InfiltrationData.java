@@ -1,65 +1,80 @@
 package com.kostyazyu.cooler.model.other;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
+
+@Embeddable
 public class InfiltrationData {
-    private double height_m;
-    private double width_m;
-    private double openCoefficient_df; //decimal fraction
-    private double curtainCoefficient_df; //decimal fraction
-    private boolean hasAutomaticDoor;
+
+    @NotNull
+    @Column(name = "doorHeightM")
+    private Double doorHeightM;
+
+    @NotNull
+    @Column(name = "doorWidthM")
+    private Double doorWidthM;
+
+    @NotNull
+    @Column(name = "openCoefficientDF")
+    private Double openCoefficientDF; //decimal fraction
+
+    @NotNull
+    @Column(name = "curtainCoefficientDF")
+    private Double curtainCoefficientDF; //decimal fraction
+
+    @NotNull
+    @Column(name = "automaticDoor")
+    private Boolean automaticDoor;
 
     public InfiltrationData() {
     }
 
-    public InfiltrationData(double height_m,
-                            double width_m,
-                            double openCoefficient_df,
-                            double curtainCoefficient_df,
-                            boolean hasAutomaticDoor) {
-
-        this.height_m = height_m;
-        this.width_m = width_m;
-        this.openCoefficient_df = openCoefficient_df;
-        this.curtainCoefficient_df = curtainCoefficient_df;
-        this.hasAutomaticDoor = hasAutomaticDoor;
+    public InfiltrationData(Double doorHeightM, Double doorWidthM, Double openCoefficientDF, Double curtainCoefficientDF, Boolean automaticDoor) {
+        this.doorHeightM = doorHeightM;
+        this.doorWidthM = doorWidthM;
+        this.openCoefficientDF = openCoefficientDF;
+        this.curtainCoefficientDF = curtainCoefficientDF;
+        this.automaticDoor = automaticDoor;
     }
 
-    public double getHeight_m() {
-        return height_m;
+    public Double getDoorHeightM() {
+        return doorHeightM;
     }
 
-    public void setHeight_m(double height_m) {
-        this.height_m = height_m;
+    public void setDoorHeightM(Double doorHeightM) {
+        this.doorHeightM = doorHeightM;
     }
 
-    public double getWidth_m() {
-        return width_m;
+    public Double getDoorWidthM() {
+        return doorWidthM;
     }
 
-    public void setWidth_m(double width_m) {
-        this.width_m = width_m;
+    public void setDoorWidthM(Double doorWidthM) {
+        this.doorWidthM = doorWidthM;
     }
 
-    public double getOpenCoefficient_df() {
-        return openCoefficient_df;
+    public Double getOpenCoefficientDF() {
+        return openCoefficientDF;
     }
 
-    public void setOpenCoefficient_df(double openCoefficient_df) {
-        this.openCoefficient_df = openCoefficient_df;
+    public void setOpenCoefficientDF(Double openCoefficientDF) {
+        this.openCoefficientDF = openCoefficientDF;
     }
 
-    public double getCurtainCoefficient_df() {
-        return curtainCoefficient_df;
+    public Double getCurtainCoefficientDF() {
+        return curtainCoefficientDF;
     }
 
-    public void setCurtainCoefficient_df(double curtainCoefficient_df) {
-        this.curtainCoefficient_df = curtainCoefficient_df;
+    public void setCurtainCoefficientDF(Double curtainCoefficientDF) {
+        this.curtainCoefficientDF = curtainCoefficientDF;
     }
 
-    public boolean isHasAutomaticDoor() {
-        return hasAutomaticDoor;
+    public Boolean getAutomaticDoor() {
+        return automaticDoor;
     }
 
-    public void setHasAutomaticDoor(boolean hasAutomaticDoor) {
-        this.hasAutomaticDoor = hasAutomaticDoor;
+    public void setAutomaticDoor(Boolean automaticDoor) {
+        this.automaticDoor = automaticDoor;
     }
 }

@@ -1,30 +1,41 @@
 package com.kostyazyu.cooler.model.other;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
+
+@Embeddable
 public class FanData {
-    private int fanQuantity;
-    private double fanPower_kW;
+
+    @NotNull
+    @Column(name = "fanQuantity")
+    private Integer fanQuantity;
+
+    @NotNull
+    @Column(name = "fanPowerKW")
+    private Double fanPowerKW;
 
     public FanData() {
     }
 
-    public FanData(int fanQuantity, double fanPower_kW) {
+    public FanData(Integer fanQuantity, Double fanPowerKW) {
         this.fanQuantity = fanQuantity;
-        this.fanPower_kW = fanPower_kW;
+        this.fanPowerKW = fanPowerKW;
     }
 
-    public int getFanQuantity() {
+    public Integer getFanQuantity() {
         return fanQuantity;
     }
 
-    public void setFanQuantity(int fanQuantity) {
+    public void setFanQuantity(Integer fanQuantity) {
         this.fanQuantity = fanQuantity;
     }
 
-    public double getFanPower_kW() {
-        return fanPower_kW;
+    public Double getFanPowerKW() {
+        return fanPowerKW;
     }
 
-    public void setFanPower_kW(double fanPower_kW) {
-        this.fanPower_kW = fanPower_kW;
+    public void setFanPowerKW(Double fanPowerKW) {
+        this.fanPowerKW = fanPowerKW;
     }
 }

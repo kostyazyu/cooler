@@ -1,31 +1,42 @@
 package com.kostyazyu.cooler.model.other;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
+
+@Embeddable
 public class EquipmentData {
-    private int summaryPower_kW;
-    private double activityCoefficient_df; // decimal fraction
+
+    @NotNull
+    @Column(name = "")
+    private Integer summaryPowerKW;
+
+    @NotNull
+    @Column(name = "")
+    private Double activityCoefficientDF; // decimal fraction
 
     public EquipmentData() {
     }
 
-    public EquipmentData(int summaryPower_kW,
-                         double activityCoefficient_df) {
-        this.summaryPower_kW = summaryPower_kW;
-        this.activityCoefficient_df = activityCoefficient_df;
+    public EquipmentData(Integer summaryPowerKW,
+                         Double activityCoefficientDF) {
+        this.summaryPowerKW = summaryPowerKW;
+        this.activityCoefficientDF = activityCoefficientDF;
     }
 
-    public int getSummaryPower_kW() {
-        return summaryPower_kW;
+    public Integer getSummaryPowerKW() {
+        return summaryPowerKW;
     }
 
-    public void setSummaryPower_kW(int summaryPower_kW) {
-        this.summaryPower_kW = summaryPower_kW;
+    public void setSummaryPowerKW(Integer summaryPowerKW) {
+        this.summaryPowerKW = summaryPowerKW;
     }
 
-    public double getActivityCoefficient_df() {
-        return activityCoefficient_df;
+    public Double getActivityCoefficientDF() {
+        return activityCoefficientDF;
     }
 
-    public void setActivityCoefficient_df(double activityCoefficient_df) {
-        this.activityCoefficient_df = activityCoefficient_df;
+    public void setActivityCoefficientDF(Double activityCoefficientDF) {
+        this.activityCoefficientDF = activityCoefficientDF;
     }
 }

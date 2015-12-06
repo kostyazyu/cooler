@@ -1,56 +1,90 @@
 package com.kostyazyu.cooler.model.product;
 
-public class ProductRecord {
+import com.kostyazyu.cooler.model.BaseEntity;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "product_records")
+public class ProductRecord extends BaseEntity {
+
+    @OneToOne()
+    @JoinColumn(name = "product_id")
     private Product product;
+
+    @OneToOne()
+    @JoinColumn(name = "packing_id")
     private Packing packing;
-    private int prodMass_kg;
-    private int prodTurnover_kg;
-    private int startTemperature_C;
-    private int finalTemperature_C;
-    private double packingMassFraction_df;
+
+    @NotNull
+    @Column(name = "prodMassKG")
+    private Integer prodMassKG;
+
+    @NotNull
+    @Column(name = "prodTurnoverKG")
+    private Integer prodTurnoverKG;
+
+    @NotNull
+    @Column(name = "startTemperatureC")
+    private Double startTemperatureC;
+
+    @NotNull
+    @Column(name = "finalTemperatureC")
+    private Double finalTemperatureC;
+
+    @NotNull
+    @Column(name = "packingMassFractionDF")
+    private Double packingMassFractionDF;
+
+    public ProductRecord() {}
 
     private ProductRecord(Builder builder) {
         this.product = builder.product;
         this.packing = builder.packing;
-        this.prodMass_kg = builder.prodMass_kg;
-        this.prodTurnover_kg = builder.prodTurnover_kg;
-        this.startTemperature_C = builder.startTemperature_C;
-        this.finalTemperature_C = builder.finalTemperature_C;
-        this.packingMassFraction_df = builder.packingMassFraction_df;
+        this.prodMassKG = builder.prodMassKG;
+        this.prodTurnoverKG = builder.prodTurnoverKG;
+        this.startTemperatureC = builder.startTemperatureC;
+        this.finalTemperatureC = builder.finalTemperatureC;
+        this.packingMassFractionDF = builder.packingMassFractionDF;
     }
 
     public static class Builder {
         private Product product;
         private Packing packing;
-        private int prodMass_kg;
-        private int prodTurnover_kg;
-        private int startTemperature_C;
-        private int finalTemperature_C;
-        private double packingMassFraction_df;
+        private Integer prodMassKG;
+        private Integer prodTurnoverKG;
+        private Double startTemperatureC;
+        private Double finalTemperatureC;
+        private Double packingMassFractionDF;
 
         public Builder(Product product, Packing packing) {
             this.product = product;
             this.packing = packing;
         }
 
-        public Builder prodMass_kg(int prodMass_kg) {
-            this.prodMass_kg = prodMass_kg;
+        public Builder prodMassKG(Integer prodMassKG) {
+            this.prodMassKG = prodMassKG;
             return this;
         }
-        public Builder prodTurnover_kg(int prodTurnover_kg) {
-            this.prodTurnover_kg = prodTurnover_kg;
+
+        public Builder prodTurnoverKG(Integer prodTurnoverKG) {
+            this.prodTurnoverKG = prodTurnoverKG;
             return this;
         }
-        public Builder startTemperature_C(int startTemperature_C) {
-            this.startTemperature_C = startTemperature_C;
+
+        public Builder startTemperatureC(Double startTemperatureC) {
+            this.startTemperatureC = startTemperatureC;
             return this;
         }
-        public Builder finalTemperature_C(int finalTemperature_C) {
-            this.finalTemperature_C = finalTemperature_C;
+
+        public Builder finalTemperatureC(Double finalTemperatureC) {
+            this.finalTemperatureC = finalTemperatureC;
             return this;
         }
-        public Builder packingMassFraction_df(double packingMassFraction_df) {
-            this.packingMassFraction_df = packingMassFraction_df;
+
+        public Builder packingMassFractionDF(Double packingMassFractionDF) {
+            this.packingMassFractionDF = packingMassFractionDF;
             return this;
         }
 
@@ -58,7 +92,4 @@ public class ProductRecord {
             return new ProductRecord(this);
         }
     }
-
-
-
 }

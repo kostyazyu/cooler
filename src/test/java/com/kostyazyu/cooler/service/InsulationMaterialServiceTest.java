@@ -25,7 +25,7 @@ import static com.kostyazyu.cooler.InsulationMaterialTestData.*;
 })
 @RunWith(SpringJUnit4ClassRunner.class)
 @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts ="classpath:db/populateDB.sql")
-public class InsulationMaterialServiceImplTest {
+public class InsulationMaterialServiceTest {
 
     @Autowired
     InsulationMaterialService materialService;

@@ -1,30 +1,41 @@
 package com.kostyazyu.cooler.model.other;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
+
+@Embeddable
 public class LightData {
-    private int activePeriod_h;
-    private int lightPower_W_m2;
+
+    @NotNull
+    @Column(name = "activePeriodH")
+    private Integer activePeriodH;
+
+    @NotNull
+    @Column(name = "lightPowerWperM2")
+    private Integer lightPowerWperM2;
 
     public LightData() {
     }
 
-    public LightData(int activePeriod_h, int lightPower_W_m2) {
-        this.activePeriod_h = activePeriod_h;
-        this.lightPower_W_m2 = lightPower_W_m2;
+    public LightData(Integer activePeriodH, Integer lightPowerWperM2) {
+        this.activePeriodH = activePeriodH;
+        this.lightPowerWperM2 = lightPowerWperM2;
     }
 
-    public int getActivePeriod_h() {
-        return activePeriod_h;
+    public Integer getActivePeriodH() {
+        return activePeriodH;
     }
 
-    public void setActivePeriod_h(int activePeriod_h) {
-        this.activePeriod_h = activePeriod_h;
+    public void setActivePeriodH(Integer activePeriodH) {
+        this.activePeriodH = activePeriodH;
     }
 
-    public int getLightPower_W_m2() {
-        return lightPower_W_m2;
+    public Integer getLightPowerWperM2() {
+        return lightPowerWperM2;
     }
 
-    public void setLightPower_W_m2(int lightPower_W_m2) {
-        this.lightPower_W_m2 = lightPower_W_m2;
+    public void setLightPowerWperM2(Integer lightPowerWperM2) {
+        this.lightPowerWperM2 = lightPowerWperM2;
     }
 }

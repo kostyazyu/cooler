@@ -1,6 +1,9 @@
 package com.kostyazyu.cooler.model.user;
 
 import com.kostyazyu.cooler.model.BaseEntity;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -17,6 +20,9 @@ import java.util.Set;
         @NamedQuery(name = User.GET_BY_EMAIL, query = "SELECT u FROM User u LEFT JOIN FETCH u.roles WHERE u.email=:email"),
         @NamedQuery(name = User.ALL_SORTED, query = "SELECT u FROM User u LEFT JOIN FETCH u.roles ORDER BY u.lastName, u.firstName, u.email"),
 })
+@Getter
+@Setter
+@ToString(callSuper = true)
 public class User extends BaseEntity {
 
     public static final String DELETE = "User.delete";
@@ -24,24 +30,19 @@ public class User extends BaseEntity {
     public static final String GET_BY_EMAIL = "User.getByEmail";
 
     @NotEmpty
-    @Column(name = "firstname", nullable = false)
     protected String firstName;
 
     @NotEmpty
-    @Column(name = "lastname", nullable = false)
     protected String lastName;
 
     @NotEmpty
     @Email
-    @Column(name = "email", nullable = false, unique = true)
     protected String email;
 
     @NotEmpty
     @Length(min = 5)
-    @Column(name = "password", nullable = false)
     protected String password;
 
-    @Column(name = "enabled", nullable = false)
     protected boolean enabled = true;
 
     @Column(name = "registrationDate", columnDefinition = "timestamp default now()")
@@ -72,75 +73,5 @@ public class User extends BaseEntity {
         this.password = password;
         this.enabled = enabled;
         this.roles = roles;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public Date getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", enabled=" + enabled +
-                ", registrationDate=" + registrationDate +
-                ", roles=" + roles +
-                '}';
     }
 }

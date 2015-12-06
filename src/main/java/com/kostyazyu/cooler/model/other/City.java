@@ -1,10 +1,12 @@
 package com.kostyazyu.cooler.model.other;
 
 import com.kostyazyu.cooler.model.BaseEntity;
+import lombok.*;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "CITIES", uniqueConstraints = {@UniqueConstraint(columnNames = "name", name = "unique_name")})
@@ -13,64 +15,30 @@ import javax.validation.constraints.NotNull;
         @NamedQuery(name = City.BY_NAME, query = "SELECT c FROM City c WHERE c.name=:name"),
         @NamedQuery(name = City.ALL_SORTED, query = "SELECT c FROM City c ORDER BY c.name"),
 })
-public class City extends BaseEntity{
+@Getter
+@Setter
+@ToString(callSuper = true, includeFieldNames = true)
+public class City extends BaseEntity {
 
     public static final String DELETE = "City.delte";
     public static final String BY_NAME = "City.getByName";
     public static final String ALL_SORTED = "City.getAllSorted";
 
-    @Column(name = "name", nullable = false, unique = true)
     @NotEmpty
     private String name;
 
-    @Column(name = "temperature_C", nullable = false)
     @NotNull
-    private int temperature_C;
+    private Double temperature_C;
 
-    @Column(name = "relativeHumidity_p")
     @NotNull
-    private double relativeHumidity_p; /*percent*/
+    private Double relativeHumidity_p; /*percent*/
 
-    public City() {
-    }
+    public City() {}
 
-    public City(Integer id, String name, int temperature_C, double relativeHumidity_p) {
+    public City(Integer id, String name, Double temperature_C, Double relativeHumidity_p) {
         super(id);
         this.name = name;
         this.temperature_C = temperature_C;
         this.relativeHumidity_p = relativeHumidity_p;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getRelativeHumidity_p() {
-        return relativeHumidity_p;
-    }
-
-    public void setRelativeHumidity_p(double relativeHumidity_p) {
-        this.relativeHumidity_p = relativeHumidity_p;
-    }
-
-    public int getTemperature_C() {
-        return temperature_C;
-    }
-
-    public void setTemperature_C(int temperature_C) {
-        this.temperature_C = temperature_C;
-    }
-
-    @Override
-    public String toString() {
-        return "City{" +
-                "name='" + name + '\'' +
-                ", temperature_C=" + temperature_C +
-                ", relativeHumidity_p=" + relativeHumidity_p +
-                '}';
     }
 }

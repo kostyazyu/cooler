@@ -1,6 +1,6 @@
 package com.kostyazyu.cooler.service;
 
-import com.kostyazyu.cooler.model.product.Packing;
+import com.kostyazyu.cooler.model.product.Product;
 import com.kostyazyu.cooler.service.impl.PackingServiceImpl;
 import com.kostyazyu.cooler.util.NotFoundException;
 import org.junit.Test;
@@ -13,7 +13,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.kostyazyu.cooler.PackingTestData.*;
+import static org.junit.Assert.*;
+import static com.kostyazyu.cooler.ProductTestData.*;
+
+/**
+ * Created by Konstantin Zyubin
+ * on 06.10.2015.
+ * Moscow, Reutov
+ */
+
 
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",
@@ -21,59 +29,60 @@ import static com.kostyazyu.cooler.PackingTestData.*;
 })
 @RunWith(SpringJUnit4ClassRunner.class)
 @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts ="classpath:db/populateDB.sql")
-public class PackingServiceImplTest {
+public class ProductServiceTest {
 
     @Autowired
-    PackingServiceImpl packingService;
+    ProductService productService;
 
     @Test
     public void testSave() throws Exception {
-        Packing created = getCreated();
-        packingService.save(created);
-        MATCHER.assertListEquals(Arrays.asList(CARDBOARD,FOIL,PLASTIC,created), packingService.getAll());
+        Product created = getCreated();
+        productService.save(created);
+        MATCHER.assertListEquals(Arrays.asList(BEEF, created, PEPPER, SALMON), productService.getAll());
     }
 
     @Test
     public void testDelete() throws Exception {
-        packingService.delete(PACKING_SEQUENCE);
-        MATCHER.assertListEquals(Arrays.asList(FOIL, PLASTIC), packingService.getAll() );
-    }
+        productService.delete(PRODUCT_SEQUENCE);
+        MATCHER.assertListEquals(Arrays.asList(PEPPER, SALMON), productService.getAll());
 
+    }
     @Test(expected = NotFoundException.class)
     public void testDeleteNotFound() throws Exception {
-        packingService.delete(100_000);
+        productService.delete(1);
     }
 
     @Test
     public void testGet() throws Exception {
-        Packing packing = packingService.get(PACKING_SEQUENCE);
-        MATCHER.assertEquals(packing, CARDBOARD);
+        Product product = productService.get(PRODUCT_SEQUENCE);
+        MATCHER.assertEquals(product, BEEF);
     }
+
     @Test(expected = NotFoundException.class)
     public void testGetNotFound() throws Exception {
-        packingService.get(PACKING_SEQUENCE + 100);
+        productService.get(100);
     }
 
     @Test
     public void testGetByName() throws Exception {
-        Packing cardboard = packingService.getByName("Cardboard");
-        MATCHER.assertEquals(cardboard, CARDBOARD);
+        Product beef = productService.getByName("Beef");
+        MATCHER.assertEquals(beef, BEEF);
     }
     @Test(expected = NotFoundException.class)
     public void testGetByNameNotFound() throws Exception {
-        packingService.getByName("Suzanna");
+        productService.getByName("Jenya");
     }
 
     @Test
     public void testGetAll() throws Exception {
-        List<Packing> packings = packingService.getAll();
-        MATCHER.assertListEquals(packings, PACKINGS);
+        List<Product> all = productService.getAll();
+        MATCHER.assertListEquals(all, Arrays.asList(BEEF, PEPPER, SALMON));
     }
 
     @Test
     public void testUpdate() throws Exception {
-        Packing updated = getUpdated();
-        packingService.update(updated);
-        MATCHER.assertListEquals(Arrays.asList(updated, FOIL, PLASTIC), packingService.getAll());
+        Product updated = getUpdated();
+        productService.save(updated);
+        MATCHER.assertListEquals(Arrays.asList(updated, PEPPER, SALMON), productService.getAll());
     }
 }

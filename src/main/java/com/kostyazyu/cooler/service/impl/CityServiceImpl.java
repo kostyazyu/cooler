@@ -7,7 +7,6 @@ import com.kostyazyu.cooler.util.NotFoundException;
 import com.kostyazyu.cooler.util.exception.ExceptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sun.plugin.extension.ExtensionUtils;
 
 import java.util.List;
 
